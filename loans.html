@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawnshop Loan Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1f5a22;
+      margin: 0;
+      padding: 0;
+    }
+
+    .loan-container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #ddb142;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px; /* Space between form groups */
+    }
+
+    .form-group {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .submit-btn:hover {
+      background-color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .form-group {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loan-container">
+    <h2>Loan Application</h2>
+    <form id="loanForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="loanId">Loan ID</label>
+          <input type="text" id="loanId" name="loanId" placeholder="e.g., LOAN-1001" required />
+        </div>
+
+        <div class="form-group">
+          <label for="customerName">Customer Name</label>
+          <input type="text" id="customerName" name="customerName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contactNumber">Contact Number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" placeholder="09xxxxxxxxx" required />
+        </div>
+
+        <div class="form-group">
+          <label for="loanAmount">Loan Amount (₱)</label>
+          <input type="number" id="loanAmount" name="loanAmount" min="0" step="0.01" required />
+        </div>
+
+        <div class="form-group">
+          <label for="interestRate">Interest Rate (%)</label>
+          <input type="number" id="interestRate" name="interestRate" min="0" step="0.1" required />
+        </div>
+
+        <div class="form-group">
+          <label for="loanTerm">Loan Term (months)</label>
+          <input type="number" id="loanTerm" name="loanTerm" min="1" required />
+        </div>
+
+        <div class="form-group">
+          <label for="loanDate">Loan Date</label>
+          <input type="date" id="loanDate" name="loanDate" required />
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Due Date</label>
+          <input type="date" id="dueDate" name="dueDate" required />
+        </div>
+
+        <div class="form-group" style="flex: 1 1 100%;">
+          <label for="collateral">Collateral Description</label>
+          <textarea id="collateral" name="collateral" rows="3" placeholder="Describe the item used as collateral..." required></textarea>
+        </div>
+
+        <div class="form-group" style="flex: 1 1 100%;">
+          <label for="remarks">Remarks</label>
+          <textarea id="remarks" name="remarks" rows="3" placeholder="Additional notes (optional)..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Loan Application</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loanForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (confirm("Confirm loan application submission?")) {
+        alert("Loan application submitted!");
+        this.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

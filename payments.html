@@ -1,0 +1,192 @@
+4<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAYMENTS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1f5a22;
+      margin: 0;
+      padding: 0;
+    }
+
+    .payment-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #ddb142;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .form-group {
+      flex: 1 1 45%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn, .print-btn {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover, .print-btn:hover {
+      background-color: #000000;
+    }
+
+    .amount-words {
+      font-style: italic;
+      color: #444;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .form-group {
+        flex: 1 1 100%;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>PAYMENTS</h2>
+    <form id="paymentForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="receiptNo">Receipt No.</label>
+          <input type="text" id="receiptNo" name="receiptNo" value="RCPT-<?= Math.floor(Math.random() * 100000) ?>" readonly />
+        </div>
+
+        <div class="form-group">
+          <label for="transactionId">Transaction ID</label>
+          <input type="text" id="transactionId" name="transactionId" required />
+        </div>
+
+        <div class="form-group">
+          <label for="customerName">Customer Name</label>
+          <input type="text" id="customerName" name="customerName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" name="contact" placeholder="09xxxxxxxxx" required />
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount (₱)</label>
+          <input type="number" id="amount" name="amount" min="0" step="0.01" required />
+          <div id="amountWords" class="amount-words"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Payment Method</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="">--Select Method--</option>
+            <option value="Cash">Cash</option>
+            <option value="GCash">GCash</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentDate">Payment Date</label>
+          <input type="date" id="paymentDate" name="paymentDate" required />
+        </div>
+
+        <div class="form-group" style="flex: 1 1 100%;">
+          <label for="remarks">Remarks</label>
+          <textarea id="remarks" name="remarks" rows="3" placeholder="Optional notes..."></textarea>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="submit-btn">Submit Payment</button>
+        <button type="button" class="print-btn" onclick="window.print()">Print Receipt</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Amount to words (simplified)
+    const amountInput = document.getElementById("amount");
+    const amountWordsDiv = document.getElementById("amountWords");
+
+    amountInput.addEventListener("input", () => {
+      const amount = parseFloat(amountInput.value);
+      amountWordsDiv.textContent = isNaN(amount)
+        ? ""
+        : `Amount in words: ${numberToWords(amount)} pesos`;
+    });
+
+    function numberToWords(amount) {
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'PHP',
+        maximumFractionDigits: 2
+      });
+      return formatter.format(amount);
+    }
+
+    // Confirmation popup
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (confirm("Confirm submission of payment?")) {
+        alert("Payment submitted successfully!");
+        this.reset();
+        amountWordsDiv.textContent = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
