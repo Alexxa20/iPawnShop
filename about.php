@@ -364,29 +364,32 @@ include 'db.php';
 </section>
 
 
-
     <!-- Contact and Social Media Section -->
-    <section class="contact-social-section" style="background-color: var(--background-light); padding: 4rem 2rem;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-            <!-- Contact Details -->
-            <div style="flex: 1; text-align: left; margin-left: 50px;">
-                <h2 class="text-3xl font-semibold mb-4">Contact Details</h2>
-                <p><strong>Phone:</strong> 0907-536-5447</p>
-                <p><strong>Email:</strong> support@ipawnshop.com</p>
-                <p><strong>Address:</strong> 123 Pawnshop Lane, Philippines</p>
-                <p><strong>Working Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM</p>
-            </div>
-            <!-- Follow Us on Social Media -->
-            <div style="flex: 1; text-align: left; margin-left: 300px;">
-                <h2 class="text-3xl font-semibold mb-4">Follow Us on Social Media</h2>
-                <p>Stay connected with us:</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li><a href="https://facebook.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Facebook</a></li>
-                    <li><a href="https://twitter.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Twitter</a></li>
-                    <li><a href="https://instagram.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Instagram</a></li>
-            </div>
+<section class="contact-social-section" style="background-color: var(--background-light); padding: 4rem 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;">
+        
+        <!-- Contact Details -->
+        <div style="flex: 1; text-align: left;">
+            <h2 class="text-3xl font-semibold mb-4">Contact Details</h2>
+            <p><strong>Phone:</strong> 0907-536-5447</p>
+            <p><strong>Email:</strong> support@ipawnshop.com</p>
+            <p><strong>Address:</strong> 123 Pawnshop Lane, Philippines</p>
+            <p><strong>Working Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM</p>
         </div>
-    </section>
+
+        <!-- Follow Us on Social Media -->
+        <div style="flex: 1; text-align: left;">
+            <h2 class="text-3xl font-semibold mb-4">Follow Us on Social Media</h2>
+            <p>Stay connected with us:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="https://facebook.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Twitter</a></li>
+                <li><a href="https://instagram.com" target="_blank" style="color: var(--primary-color); text-decoration: none;">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
     <!-- Creators Section -->
     <section class="creators-section">
@@ -394,7 +397,7 @@ include 'db.php';
         <div class="creators-grid">
             <!-- Creator 1 -->
             <div class="creator-container">
-                <img src="images/bea2.jpg" alt="Creator 1">
+                <img src="images/Bea.jpg" alt="Creator 1">
                 <div class="creator-details">
                     <h3>Bea Ramos</h3>
                     <p>Contact: 09152607190</p>
@@ -403,7 +406,7 @@ include 'db.php';
             </div>
             <!-- Creator 2 -->
             <div class="creator-container">
-                <img src="images/jed.jpg" alt="Creator 2">
+                <img src="images/Jed.jpg" alt="Creator 2">
                 <div class="creator-details">
                     <h3>Jed Ismael Polong</h3>
                     <p>Contact: 09958433592</p>
@@ -412,7 +415,7 @@ include 'db.php';
             </div>
             <!-- Creator 3 -->
             <div class="creator-container">
-                <img src="images/Cyril.jpg" alt="Creator 3">
+                <img src="images/cy.jpg" alt="Creator 3">
                 <div class="creator-details">
                     <h3>Cyrel Bucad</h3>
                     <p>Contact: 09075365447 </p>
@@ -421,7 +424,7 @@ include 'db.php';
             </div>
             <!-- Creator 4 -->
             <div class="creator-container">
-                <img src="images/alex.jpg" alt="Creator 4">
+                <img src="images/Alexa.jpg" alt="Creator 4">
                 <div class="creator-details">
                     <h3>Alexxa Concepcion</h3>
                     <p>Contact: 09637265441</p>
@@ -430,7 +433,7 @@ include 'db.php';
             </div>
             <!-- Creator 5 -->
             <div class="creator-container">
-                <img src="images/daisy.webp" alt="Creator 5">
+                <img src="images/DAISY.jpg" alt="Creator 5">
                 <div class="creator-details">
                     <h3>Daisy Barce</h3>
                     <p>Contact: 09469522764</p>
@@ -500,6 +503,5 @@ include 'db.php';
   </div>
 </footer>
 
- 
 </body>
 </html>
